@@ -1,0 +1,50 @@
+
+<div class="container my-4 ">
+  <div class="card text-dark border-info md-6" >
+  <div class="card-header bg-transparent text-center bold fs-1">Password:</div>
+  <div class="card-body row">
+    <h5 class="card-title bg-light col-sm-6 mx-auto text-warning text-center fs-2  py-3">{{password}}</h5>
+    <div class="row">
+        <button class="btn btn-outline-info texto col-sm-6 mx-auto" (click)="copiarpass()">Copiar</button>
+    </div>
+
+
+  </div>
+
+
+<div class="container text-center" *ngIf="password==' '">
+  <h2 >Generate Password:</h2>
+
+  <form (ngSubmit)="generar()">
+    <p>choose your password options:</p>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+  <input type="checkbox" class="btn-check" id="mayus" autocomplete="off" [(ngModel)]="especificaciones.mayusChars" name="mayusChars">
+  <label class="btn btn-outline-warning" for="mayus">Mayus</label>
+
+  <input type="checkbox" class="btn-check" id="numbers" autocomplete="off" [(ngModel)]="especificaciones.numbers" name="numbers">
+  <label class="btn btn-outline-warning" for="numbers">Numbers</label>
+
+  <input type="checkbox" class="btn-check" id="specialchar" autocomplete="off" [(ngModel)]="especificaciones.especialChars" name="especialChars">
+  <label class="btn btn-outline-warning" for="specialchar">Special Chars</label>
+</div>
+<div class="row  form-group">
+  <div class="col-xs-2 my-2">
+    <input  type='number' placeholder="Password Size" class="form-control texto  mx-auto" [(ngModel)]="especificaciones.largo" name="largo">
+  </div>
+  <button class="btn btn-primary " role="button">generate</button>
+
+</div>
+
+
+
+  </form>
+</div>
+<div  *ngIf="password!=' '" class="container">
+  <div class="row">
+      <button (click)="password=' '" class="btn btn-primary ">Reset password</button>
+
+  </div>
+
+
+
+</div>
